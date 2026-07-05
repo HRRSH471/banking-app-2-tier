@@ -1,10 +1,8 @@
-name : Test Fleet
+name : Test Fleet health and Env Variables
 
-on: 
-  push:
-    branches:
-      - main
-
+on:
+  workflow_dispatch:
+  
 permissions:
   id-token: write
   contents: read

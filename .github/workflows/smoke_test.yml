@@ -1,0 +1,11 @@
+name : Smoke Testing For Infra and Networking
+on:
+  Workflow_dispatch:
+  
+jobs:
+  working-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo Message
+        run: echo "Smoke Testing For Infra and Networking is working successfully ✅"
