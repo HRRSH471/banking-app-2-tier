@@ -1,6 +1,6 @@
 name : Smoke Testing For Infra and Networking
 on:
-  Workflow_call:
+  workflow_call:
   
 jobs:
   working-job:

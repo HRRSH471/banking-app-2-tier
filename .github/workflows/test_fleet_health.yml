@@ -29,7 +29,7 @@ jobs:
                 "docker --version 2>/dev/null || echo Docker not installed",
                 "aws --version 2>/dev/null || echo AWS CLI not installed",
                 "mysql --version 2>/dev/null || echo MySQL not installed",
-                "aws ssm get-parameters-by-path --path /application/banking --with-decryption --region ap-northeast-2"
+                "aws ssm get-parameters-by-path --path /application/banking --with-decryption --region ap-northeast-2 --query Parameters[*].{Name:Name,Value:Value} --output table"
               ]
             }' \
             --region ap-northeast-2 \
