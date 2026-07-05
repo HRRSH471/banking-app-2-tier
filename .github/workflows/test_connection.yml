@@ -1,6 +1,6 @@
 name : Test Connection For Piplines
 on:
-  Workflow_dispatch:
+  Workflow_call:
   
 jobs:
   working-job:

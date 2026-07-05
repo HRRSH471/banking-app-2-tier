@@ -1,6 +1,6 @@
 name : Building and Pushing to AWS ECR
 on:
-  Workflow_dispatch:
+  Workflow_call:
   
 jobs:
   working-job:

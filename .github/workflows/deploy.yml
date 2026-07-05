@@ -1,6 +1,6 @@
 name : Application deployment on AWS
 on:
-  Workflow_dispatch:
+  Workflow_call:
   
 jobs:
   working-job:
