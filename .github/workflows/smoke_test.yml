@@ -16,6 +16,7 @@ jobs:
         run: echo "Smoke Testing is done successfully ➡️"
       - name: Upload smoke_test.py on AWS
         run: |
+          aws s3 mb s3://162168468250-devops-scripts --region ap-northeast-2 || echo "Bucket already exists"
           aws s3 cp smoke_test.py \
           s3://162168468250-devops-scripts/smoke_test.py \
           --region ap-northeast-2

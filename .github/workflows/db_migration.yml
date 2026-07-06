@@ -1,0 +1,26 @@
+name: Initialization Database
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  init_db:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::162168468250:role/github-action-deploy-role
+          aws-region: ap-northeast-2
+
+      - name: Upload file on S3
+        run: |
+          aws s3 mb s3://162168468250-devops-scripts --region ap-northeast-2 || echo "Bucket already exists"
+          aws s3 cp init.sql s3://162168468250-devops-scripts/init.sql --region ap-northeast-2
+          aws s3 cp init.py s3://162168468250-devops-scripts/init.py --region ap-northeast-2
+          echo "✅ Files Uploaded to bucket......"
+
