@@ -48,3 +48,15 @@ jobs:
             --region ap-northeast-2 \
             --query "CommandInvocations[*].{Instance:InstanceId,Status:Status,Output:CommandPlugins[0].Output}" \
             --output table
+          FAILED=$(aws ssm list-command-invocations \
+            --command-id "${{ steps.health.outputs.cmd_id }}" \
+            --details \
+            --query "length(CommandInvocations[?Status=='Failed'])" \
+            --output text \
+            --region ap-northeast-2)
+
+          [ "$FAILED" -gt 0 ] && \
+          echo "::error::Health Check Failed on $FAILED instances" && \
+          exit 1
+
+          echo "ALL Instances Healthy ✅"  
