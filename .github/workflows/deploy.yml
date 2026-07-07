@@ -10,7 +10,7 @@ permissions:
 
 env:
   VERSION: v1
-  EGION: ap-northeast-2
+  REGION: ap-northeast-2
   ECR: 162168468250.dkr.ecr.ap-northeast-2.amazonaws.com
   IMAGE: 162168468250.dkr.ecr.ap-northeast-2.amazonaws.com/flaskapp-simple-bank
   S3_BUCKET: s3://162168468250-devops-scripts
@@ -49,6 +49,6 @@ jobs:
           echo "Docker compose Uploaded ✅"
 
       # - name: Deploy via SSM
-      
+        
 
     
