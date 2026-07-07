@@ -1,6 +1,6 @@
-Services:
-  Simplebank_app:
-    image: 162168468250.dkr.ecr.ap-northeast-2.amazonaws.com/flaskapp-simple-bank
+services:
+  simplebank_app:
+    image: 162168468250.dkr.ecr.ap-northeast-2.amazonaws.com/flaskapp-simple-bank:${IMAGE_TAG}
     container_name: simplebank_app
     ports:
       - "5000:5000"

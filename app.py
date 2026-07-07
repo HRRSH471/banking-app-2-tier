@@ -6,7 +6,7 @@ import pymysql
 
 
 if os.getenv("FLASK_ENV") == "production":
-    client=boto3.client("ssm",region_name="us-east-1")
+    client=boto3.client("ssm",region_name="ap-northeast-2")
     for p in client.get_parameters_by_path(
         Path="/application/banking",
         WithDecryption=True
@@ -36,7 +36,7 @@ def generate_account_number():
 # ─── Home ───────────────────────────────────────────────
 @app.route('/health')
 def health():
-    return True
+    return "Ok" , 200
 
 @app.route('/')
 def home():
