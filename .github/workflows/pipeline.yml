@@ -27,12 +27,12 @@ jobs:
       id-token: write
       contents: read
 
-  # build_push:
-  #   needs: smoke_test
-  #   uses: ./.github/workflows/build_push.yml   # <-- Check actual filename
-  #   permissions:
-  #     id-token: write
-  #     contents: read   build push ka code h ye    
+  build_push:
+    needs: smoke_test
+    uses: ./.github/workflows/build_push.yml   # <-- Check actual filename
+    permissions:
+      id-token: write
+      contents: read   build push ka code h ye    
 
   deploy:
     needs: build_push
